@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Find Your Tracks{% endblock %}
+
+{% block content %}
+    <div class="map-container">
+        <!-- container element for HERE maps -->
+        <div id="mapContainer" style="width: 100%; height: 400px;"></div>
+        
+        <!-- Settings Sidebar -->
+        <div class="settings-sidebar">
+            <h2>Settings</h2>
+            <!-- Add checkboxes or input fields for options -->
+            <!-- Example: -->
+            <label><input type="checkbox"> Round Track</label>
+            <label><input type="checkbox"> Sprint</label>
+            <!-- Add more options as needed -->
+        </div>
+    </div>
+
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" async defer></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" async defer></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" async defer></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" async defer></script>
+<script>
+    // Callback function to execute after HERE Maps API script has loaded
+    function initMap() {
+        // Custom JavaScript code to initialize and display the map
+        var platform = new H.service.Platform({
+            apikey: 'jHuy8xcT9FRlTfU3EqM1dDy-Xr9_w5ly9B8-yrMvn_8'
+        });
+
+    }
+    </script>
+
+    <script src="{{ url_for('static', filename='js/here_api.js') }}"></script>
+{% endblock %}
