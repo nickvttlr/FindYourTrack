@@ -1,0 +1,25 @@
+.map-container {
+    display: flex;  /* Use flexbox for layout */
+    width: 920px;  /* Adjust width as needed */
+  height: 560px; /* Adjust height as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  }
+  #settingsbar{
+    background-color: #3a3a3a; /* Darker gray background */
+    width: 200px; /* Adjust sidebar width */
+    height: 100%;
+}
+  #mapContainer {
+    height: 560px;
+    width: 620px;
+  }
+
+.list-group-item{
+    background-color: #3a3a3a;
+    border-color: #3a3a3a;
+    color: whitesmoke;
+}
+

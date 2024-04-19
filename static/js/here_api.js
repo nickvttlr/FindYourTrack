@@ -1,25 +1,26 @@
-// Wait for the DOM content to be fully loaded before initializing the map
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the HERE Maps API with your API key
-    var platform = new H.service.Platform({
-        apikey: 'YOUR_API_KEY' // Replace 'YOUR_API_KEY' with your actual API key
-    });
+// Replace with your actual API key
+const apiKey = 'jHuy8xcT9FRlTfU3EqM1dDy-Xr9_w5ly9B8-yrMvn_8';
 
-    // Define the map container
-    var mapContainer = document.getElementById('mapContainer');
+function initializeMap() {
+  const platform = new H.service.Platform({
+    'apikey': apiKey
+  });
 
-    // Create default layers for the map
-    var defaultLayers = platform.createDefaultLayers();
+  const defaultLayers = platform.createDefaultLayers();
 
-    // Create a new map object
-    var map = new H.Map(mapContainer, defaultLayers.vector.normal.map, {
-        center: { lat: 52.5, lng: 13.4 }, // Berlin coordinates
-        zoom: 10
-    });
+  const map = new H.Map(
+    document.getElementById('mapContainer'),
+    defaultLayers.vector.normal.map,
+    {
+      zoom: 10,
+      center: { lat: 47.7, lng: 10.3 }  // Kempten
+    }
+  );
+  var mapEvents = new H.mapevents.MapEvents(map);
 
-    // Enable map interaction behaviors
-    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+  // Instantiate the default behavior, providing the mapEvents object:
+  new H.mapevents.Behavior(mapEvents);
+}
 
-    // Add default UI components to the map
-    var ui = H.ui.UI.createDefault(map, defaultLayers);
-});
+// Call the function after libraries are loaded (optional, see below)
+window.addEventListener('load', initializeMap);
